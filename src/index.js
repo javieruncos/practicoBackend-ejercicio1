@@ -2,6 +2,7 @@ import  Express  from "express";
 import cors from "cors"
 import morgan from "morgan";
 import path from "path"
+import productoRouter from "./routes/producto.routes"
 
 import './database'
 
@@ -18,3 +19,7 @@ app.use(Express.json());
 app.use(Express.urlencoded({extended:true}))
 app.use(morgan("dev"))
 app.use(Express.static(path.join(__dirname,"../public")))
+
+
+
+app.use("/apilista",productoRouter)
